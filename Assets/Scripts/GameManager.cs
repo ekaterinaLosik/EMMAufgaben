@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
             Pause();
         }
     }
 
     private void Pause()
     {
+        isPaused = !isPaused;
         if (isPaused)
         {
             Time.timeScale = 0f;
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
+
     public void EndGame()
     {
         deathPanel.SetActive(true);
@@ -42,8 +43,17 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator WaitAndLoadMenu()
     {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("MainMenu");
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene("Lobby");
 
+    }
+    public void ResumeGame(){
+        Pause();
+    }
+    public void RestartGame(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ExitToLobby(){
+        SceneManager.LoadScene("Lobby");
     }
 }

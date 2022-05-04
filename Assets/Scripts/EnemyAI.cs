@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform player;
-  //  public GameManager gameManager;
+    public GameManager gameManager;
     public LayerMask playerLayer;
     bool alreadyAttacked = false;
     public float sightRange, attackRange;
@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             Debug.Log("attack");
-           // gameManager.EndGame();
+            gameManager.EndGame();
         }
         alreadyAttacked = true;
     }
