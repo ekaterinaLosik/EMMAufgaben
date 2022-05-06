@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Pause();
     }
     public void ExitToLobby(){
         SceneManager.LoadScene("Lobby");
