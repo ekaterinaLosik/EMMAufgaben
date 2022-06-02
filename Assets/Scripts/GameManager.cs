@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         deathPanel.SetActive(true);
-        StartCoroutine(WaitAndLoadMenu());
+        StartCoroutine(WaitAndRestart());
     }
     IEnumerator WaitAndLoadMenu()
     {
@@ -56,5 +56,11 @@ public class GameManager : MonoBehaviour
     }
     public void ExitToLobby(){
         SceneManager.LoadScene("Lobby");
+    }
+    IEnumerator WaitAndRestart()
+    {
+        yield return new WaitForSeconds(6);
+       RestartGame();
+
     }
 }

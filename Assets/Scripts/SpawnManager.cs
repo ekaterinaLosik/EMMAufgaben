@@ -7,13 +7,14 @@ public class SpawnManager : MonoBehaviour
     public Transform myPrefab;
     public int count;
     public float range, height;
+    public Transform inmageTarget; 
     
     // Start is called before the first frame update
     void Start()
     {
         while(count != 0){
             var position = new Vector3(Random.Range(-range, range), height, Random.Range(-range, range));
-            Instantiate(myPrefab, position, Quaternion.identity);
+            Instantiate(myPrefab, position, Quaternion.identity, inmageTarget);
             count--;
         }
         
